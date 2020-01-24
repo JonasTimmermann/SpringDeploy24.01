@@ -20,4 +20,10 @@ public class FormController {
 		public List<Form> getAllForms() {
 			return formService.getAllForms();
 		}
+	
+		@RequestMapping(method = RequestMethod.POST, value = "/form/add")
+		public String saveForm(@RequestBody String formname) {
+			return formService.addWhenNotExisting(formname);
+		}
+	
 }
