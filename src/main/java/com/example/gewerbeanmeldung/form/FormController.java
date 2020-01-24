@@ -23,7 +23,7 @@ public class FormController {
 			return formService.getAllForms();
 		}
 	
-		@RequestMapping(method = RequestMethod.POST, value = "/form/add")
+		@RequestMapping(method = RequestMethod.POST, value = "/forms/add")
 		public String saveForm(@RequestBody String formname) {
 			return formService.addWhenNotExisting(formname);
 		}
