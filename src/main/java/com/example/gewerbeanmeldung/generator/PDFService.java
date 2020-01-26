@@ -16,6 +16,7 @@ import com.example.gewerbeanmeldung.Answers.Answers;
 import com.example.gewerbeanmeldung.FormFilled.FormFilled;
 import com.example.gewerbeanmeldung.FormFilled.FormFilledService;
 import com.example.gewerbeanmeldung.Question.Question;
+import com.example.gewerbeanmeldung.QuestionCategory.QuestionCategory;
 import com.example.gewerbeanmeldung.Question.QuestionService;
 import com.example.gewerbeanmeldung.form.FormService;
 import com.example.gewerbeanmeldung.pdffile.PdfFileService;
@@ -42,9 +43,13 @@ public class PDFService {
 	        List<Answers> aList = getAllAnswers(fId);
 	        List<Question> qList = getAllQuestions(fId);
 	        
+		List<QuestionCategory> catList = qList.get(0).getQuestionCategories();
+		String catName = catList.get(0).category;
+			
+			
 	        String formname = fService.getFormById(ffService.getFilledForm(fId).getForm()).getFormname();
 	        
-	        byte[] d = new PDFGen().createPdf(DEST, aList, qList, formname);
+	        byte[] d = new PDFGen().createPdf(DEST, aList, qList, catName);
 	        pdffService.storeFile(d, fId, filename);
 	        SendEmail.sendmail(DEST);
 	        
