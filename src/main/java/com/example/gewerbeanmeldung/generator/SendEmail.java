@@ -54,7 +54,7 @@ public class SendEmail {
 	            BodyPart messageBodyPart = new MimeBodyPart();
 	            
 	            // Now set the actual message
-	            messageBodyPart.setText("Hi guys its works");
+	            messageBodyPart.setText("Bitte, um Bearbeitung des folgenden Antrages");
 	            
 	            // Create a multipar message
 	            Multipart multipart = new MimeMultipart();
