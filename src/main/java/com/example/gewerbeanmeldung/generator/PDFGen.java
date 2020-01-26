@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import com.example.gewerbeanmeldung.Answers.Answers;
 import com.example.gewerbeanmeldung.Question.Question;
@@ -153,12 +155,21 @@ public class PDFGen {
 	  * return die Uhrzeit
 	  * 
 	  */
-	 public String currenttime() {
+	 /**public String currenttime() {
 		 
 		 java.util.Date datee = java.util.Calendar.getInstance().getTime();
 		 SimpleDateFormat time = new SimpleDateFormat("HH:mm");
 		 String timee = time.format(datee);
 	         return timee;
-	 }
+	 }**/
+	
+	public String currenttime() {
+			 
+			 ZoneId timeZone = ZoneId.of("Europe/Berlin");
+			 int hour = ZonedDateTime.now(timeZone).getHour();
+			 int min = ZonedDateTime.now(timeZone).getMinute();
+			 return (hour + ":" + min);
+			 
+		 }
 
 }
