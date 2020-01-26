@@ -44,7 +44,7 @@ public class PDFService {
 	        List<Question> qList = getAllQuestions(fId);
 	        
 		List<QuestionCategory> catList = qList.get(0).getQuestionCategories();
-		String catName = catList.get(0).category;
+		String catName = catList.get(0).getCategory();
 			
 			
 	        String formname = fService.getFormById(ffService.getFilledForm(fId).getForm()).getFormname();
