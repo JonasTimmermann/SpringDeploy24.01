@@ -161,7 +161,7 @@ public class PDFGen {
 		 SimpleDateFormat time = new SimpleDateFormat("HH:mm");
 		 String timee = time.format(datee);
 	         return timee;
-	 }**/
+	 }
 	
 	public String currenttime() {
 			 
@@ -169,6 +169,25 @@ public class PDFGen {
 			 int hour = ZonedDateTime.now(timeZone).getHour();
 			 int min = ZonedDateTime.now(timeZone).getMinute();
 			 return (hour + ":" + min);
+			 
+		 }
+		 **/
+	
+	public String currenttime() {
+			 String minn;
+			 ZoneId timeZone = ZoneId.of("Europe/Berlin");
+			 int hour = ZonedDateTime.now(timeZone).getHour();
+			 int min = ZonedDateTime.now(timeZone).getMinute();
+			 
+			 if((min) < 10) {
+				 minn = "0";
+				 minn = minn + Integer.toString(min);
+				 
+			 } else {
+				 minn = Integer.toString(min);
+			 }
+				 
+			 return (hour + ":" + minn);
 			 
 		 }
 
